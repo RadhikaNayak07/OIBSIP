@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Authentication System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="container">
+        <div id="loginPanel" class="panel">
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="return loginUser()">
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" required value="" autocomplete="off">
+                <br>
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" required value="" autocomplete="new-password">
+                <br>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" onclick="showRegistrationPanel()">Register here</a></p>
+            <p id="loginMessage" class="message"></p>
+        </div>
+
+        <div id="registrationPanel" class="panel">
+            <h2>Register</h2>
+            <form id="registrationForm" onsubmit="return registerUser()">
+                <label for="registerUsername">Username:</label>
+                <input type="text" id="registerUsername" required value="" autocomplete="off">
+                <br>
+                <label for="registerEmail">Email:</label>
+                <input type="email" id="registerEmail" required value="" autocomplete="off">
+                <br>
+                <label for="registerPassword">Password:</label>
+                <input type="password" id="registerPassword" required value="" autocomplete="new-password">
+                <br>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="showLoginPanel()">Login here</a></p>
+            <p id="registrationMessage" class="message"></p>
+        </div>
+
+        <div id="securedPanel" class="panel">
+            <h2>Secured Page</h2>
+            <p>Welcome to the secured page, <span id="loggedInUsername"></span>!</p>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
